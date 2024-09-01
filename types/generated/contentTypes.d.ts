@@ -969,11 +969,6 @@ export interface ApiProductProduct extends Schema.CollectionType {
       'api::category.category'
     >;
     discount: Attribute.Decimal;
-    user_cart: Attribute.Relation<
-      'api::product.product',
-      'manyToOne',
-      'api::user-cart.user-cart'
-    >;
     sizes: Attribute.Relation<
       'api::product.product',
       'oneToMany',
@@ -1089,20 +1084,14 @@ export interface ApiUserCartUserCart extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    products: Attribute.Relation<
-      'api::user-cart.user-cart',
-      'oneToMany',
-      'api::product.product'
-    >;
     users_permissions_users: Attribute.Relation<
       'api::user-cart.user-cart',
       'oneToMany',
       'plugin::users-permissions.user'
     >;
-    quantity: Attribute.Integer;
     amount: Attribute.Decimal;
     userId: Attribute.Integer;
-    size: Attribute.Enumeration<['S', 'M', 'L', 'XL']>;
+    ProductList: Attribute.Component<'cart-item.product-item-list', true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
