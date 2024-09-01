@@ -32,6 +32,15 @@
     },
     "userId": {
       "type": "integer"
+    },
+    "size": {
+      "type": "enumeration",
+      "enum": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ]
     }
   }
 }

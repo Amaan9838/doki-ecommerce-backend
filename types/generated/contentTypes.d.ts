@@ -1102,6 +1102,7 @@ export interface ApiUserCartUserCart extends Schema.CollectionType {
     quantity: Attribute.Integer;
     amount: Attribute.Decimal;
     userId: Attribute.Integer;
+    size: Attribute.Enumeration<['S', 'M', 'L', 'XL']>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
