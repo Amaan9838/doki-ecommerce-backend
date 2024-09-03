@@ -45,6 +45,9 @@
         "video",
         "image"
       ]
+    },
+    "link": {
+      "type": "string"
     }
   }
 }

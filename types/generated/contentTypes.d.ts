@@ -888,6 +888,7 @@ export interface ApiHeroSectionHeroSection extends Schema.CollectionType {
     description: Attribute.Text;
     ImageBg: Attribute.Enumeration<['dark', 'light']>;
     type: Attribute.Enumeration<['video', 'image']>;
+    link: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
