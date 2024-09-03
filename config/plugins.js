@@ -19,11 +19,11 @@ module.exports = ({ env }) => ({
       config: {
         provider: 'nodemailer',
         providerOptions: {
-          host: 'smtpout.secureserver.net',
-          port: 465,
+          host: env('EMAIL_HOST'),
+          port: env('EMAIL_PORT'),
           auth: {
-            user: 'sales@pinova.in',
-            pass: 'Aa9900009!$',
+            user: env('EMAIL_USERNAME'),
+            pass: env('EMAIL_PASSWORD'),
           },
         },
         settings: {
