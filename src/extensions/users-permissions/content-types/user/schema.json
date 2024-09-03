@@ -65,17 +65,17 @@
       "inversedBy": "users",
       "configurable": false
     },
-    "user_cart": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::user-cart.user-cart",
-      "inversedBy": "users_permissions_users"
-    },
     "user_wishlist": {
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::user-wishlist.user-wishlist",
       "inversedBy": "users_permissions_users"
+    },
+    "user_carts": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::user-cart.user-cart",
+      "mappedBy": "users_permissions_user"
     }
   }
 }

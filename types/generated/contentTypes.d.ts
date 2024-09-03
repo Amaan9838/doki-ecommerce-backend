@@ -770,15 +770,15 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
       'manyToOne',
       'plugin::users-permissions.role'
     >;
-    user_cart: Attribute.Relation<
-      'plugin::users-permissions.user',
-      'manyToOne',
-      'api::user-cart.user-cart'
-    >;
     user_wishlist: Attribute.Relation<
       'plugin::users-permissions.user',
       'manyToOne',
       'api::user-wishlist.user-wishlist'
+    >;
+    user_carts: Attribute.Relation<
+      'plugin::users-permissions.user',
+      'oneToMany',
+      'api::user-cart.user-cart'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -989,6 +989,11 @@ export interface ApiProductProduct extends Schema.CollectionType {
       'manyToOne',
       'api::user-wishlist.user-wishlist'
     >;
+    user_carts: Attribute.Relation<
+      'api::product.product',
+      'manyToMany',
+      'api::user-cart.user-cart'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1084,14 +1089,20 @@ export interface ApiUserCartUserCart extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    users_permissions_users: Attribute.Relation<
+    users_permissions_user: Attribute.Relation<
       'api::user-cart.user-cart',
-      'oneToMany',
+      'manyToOne',
       'plugin::users-permissions.user'
     >;
     amount: Attribute.Decimal;
     userId: Attribute.Integer;
-    ProductList: Attribute.Component<'cart-item.product-item-list', true>;
+    products: Attribute.Relation<
+      'api::user-cart.user-cart',
+      'manyToMany',
+      'api::product.product'
+    >;
+    quantity: Attribute.Integer;
+    size: Attribute.Enumeration<['S', 'M', 'L', 'XL']>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

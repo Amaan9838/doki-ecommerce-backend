@@ -12,11 +12,11 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "users_permissions_users": {
+    "users_permissions_user": {
       "type": "relation",
-      "relation": "oneToMany",
+      "relation": "manyToOne",
       "target": "plugin::users-permissions.user",
-      "mappedBy": "user_cart"
+      "inversedBy": "user_carts"
     },
     "amount": {
       "type": "decimal"
@@ -24,11 +24,23 @@
     "userId": {
       "type": "integer"
     },
-    "ProductList": {
-      "displayName": "ProductItemList",
-      "type": "component",
-      "repeatable": true,
-      "component": "cart-item.product-item-list"
+    "products": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::product.product",
+      "mappedBy": "user_carts"
+    },
+    "quantity": {
+      "type": "integer"
+    },
+    "size": {
+      "type": "enumeration",
+      "enum": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ]
     }
   }
 }
