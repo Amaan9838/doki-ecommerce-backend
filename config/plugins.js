@@ -15,4 +15,21 @@ module.exports = ({ env }) => ({
       },
     },
     // ...
+    email: {
+      config: {
+        provider: 'nodemailer',
+        providerOptions: {
+          host: 'smtpout.secureserver.net',
+          port: 465,
+          auth: {
+            user: 'sales@pinova.in',
+            pass: 'Aa9900009!$',
+          },
+        },
+        settings: {
+          defaultFrom: 'sales@pinova.in',
+          defaultReplyTo: 'sales@pinova.in',
+        },
+      },
+    },
   });
