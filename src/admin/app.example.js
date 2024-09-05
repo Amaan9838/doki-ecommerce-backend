@@ -12,7 +12,7 @@ const config = {
     // 'ja',
     // 'ko',
     // 'ms',
-    // 'nl',
+    'nl',
     // 'no',
     // 'pl',
     // 'pt-BR',
